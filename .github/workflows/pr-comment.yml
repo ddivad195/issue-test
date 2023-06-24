@@ -1,0 +1,19 @@
+on: pull_request
+jobs:
+  pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            console.log("Logging context variables before comment")
+            console.log("Issue Number: ", context.issue.number)
+            console.log("Owner: ",context.repo.owner)
+            console.log("Repo: ", context.repo.repo)
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'test'
+            })
