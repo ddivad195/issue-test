@@ -1,4 +1,4 @@
-name: pr-comment
+name: create-pr-comment
 on: pull_request
 jobs:
   pr-comment:
