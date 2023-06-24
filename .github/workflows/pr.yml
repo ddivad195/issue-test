@@ -1,0 +1,14 @@
+name: pull-request
+on: pull_request
+jobs:
+  log-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: View context attributes
+        uses: actions/github-script@v6
+        with:
+          script: console.log(context)
+      - name: View issue number
+        uses: actions/github-script@v6
+        with:
+          script: console.log(context.issue.number)
